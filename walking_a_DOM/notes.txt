@@ -1,0 +1,113 @@
+ch-7 WALKING THE DOM
+
+DOM tree refers to the HTML page where all the nodes are objects there
+can be 3main types of nodes in the DOM tree:
+1> text nodes
+2> element nodes
+3> comment nodes
+
+In an HTML page, <html>is at the root and <head> and <body> are its
+children, etc.
+-A text node is always a leaf of the tree 
+
+## AutoCorrection
+if an erroneous HTML is encountered by the browser, it tends to correct it 
+for ex, if we put something after the body,it is automatically moved inside
+the body. Another example is <table> tag which must contain <tbody>
+
+
+##  WALKING THE DOM
+document
+1. document.body= Page body tag
+2. document.documentElement= page html tag
+3. document.head= page head tag
+4. document.title= page title(string)
+more children...
+
+to change title,etc
+document.title="color"
+
+NOTE: document.body can sometime be null if the javascript written before 
+the body tag
+
+
+##  children of an element
+Direct as well as deeply nested elements of an element is called its
+children
+-Child nodes -> Elements that are direct children 
+for ex: head & body are children of <html>
+
+-Descendant nodes -> All nested elements, children, their children and
+                    so on..
+
+firstchild, lastchild & childNodes
+element.firstChild -> first child element  (document.body.firstChild)
+element.lastChild -> last child element    
+element.childNodes -> All child nodes
+
+Following is always true:
+
+elem.childNodes[0]==elem.firstChild
+elem.childNodes[elem.childNodes.length-1]==elem.lastChild
+
+there is also a method elem.hasChildNodes() to check wether
+there are any childNodes
+
+to create an arry of nodes:
+let arr=Array.from(document.body.childNodes)
+console.log(arr)
+
+Note: childNodes look like an array but its not actually an array but a
+collection we can use Array.from(collection) to convert it into an array
+
+## PARENTS & SIBLINGS
+
+#Notes on DOM Collections
+-they are read-only
+-they are live elem.childNodes variable(refrence)will automatically
+ update if childNodes of item is changed
+-They are iterable using for.....of loop
+
+Siblings and the PARENTS
+siblings are nodes that are children of the same PARENTS
+
+-for ex: <head> & <body> are siblings
+siblings have same parents. In the above ex its html
+
+- <body> is said to be the "next" or "right" sibling of <head>, <head> is said 
+to be the previous or "left" sibling of <body>
+
+-The next sibling is in nextSibling property, and the previous one in 
+previousSibling
+the parent is available as parentNode
+   alert(document.documentElement.parentNode)     //it should be node
+   alert(document.documentElement.parentElement)  //should be an element
+
+
+## ELEMENT ONLY NAVIGATION
+Sometimes, we dont want text or comment nodes some links only take
+elememt node into account. for ex:
+             document.previousElementsibling  //previous sibling which is an element
+             document.nextElementSibling //next sibling element
+             document.firstElementSibling //first element child
+             document.lastElementChild //last element child
+
+
+
+
+## Table links
+certain DOM elements may provide additional properties specific to their
+type for convinence
+table element supports the following properties:
+
+table.rows  //collection of tr elements
+table.tHead  //refrence to <caption>
+table.tFoot  //refrence to <tFoot>
+table.tBodies  //collection of <tBody> elements
+tBody.rows   //collection of <tr> inside
+
+tr.cells //collection of td and that
+tr.SectionRowIndex //index of tr inside enclosing element
+tr.rowIndex //Row number starting from 0
+
+td.cellIndex  //no of cells inside enclosing <tr>

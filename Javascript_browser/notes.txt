@@ -1,0 +1,116 @@
+CHAPTER-6
+html - skeleton
+css - styling
+js - Logic
+javascript was initially created to make webpages alive
+- the browser has an embedded engine called javascript engine or the javascript
+runtime 
+
+
+# Developer tools
+every browser has some developer tools which makes a developer's life a lot 
+easier
+(f12 on chrome opens dev tools)
+
+1) Elements -- All html Elements
+2) Console -- All the errors + logs
+3) Network -- All network requests
+we can also write js commands in the console
+
+##               <Script>
+The script tag is used to insert javascript into an html page
+-the script tag can be used to insert external or internal scripts
+<script>
+alert("Hello")
+</script>
+
+//or...
+
+<Script src="  .js"></script>
+the benefit of a seprate js file is that the browser will download it and
+store it in its cache 
+
+<script src=" .js">
+console.log()      //THIS WILL BE IGNORED
+</script>
+
+
+
+
+Advantages of using script file using src attribute of script tag
+1. Sepration of Caching
+2. Browser Caching
+
+
+
+##           Console object methods
+the console object has several methods log being one of them. some of them
+are as follows:
+
+assert() -> used to assert a condition
+clear() -> clears the console
+error() -> specify error
+log() -> outputs a message to the console
+
+table() -> Displays a tabular data
+ex: 
+obj={a: 1, b: 2, c: 3}
+console.table(obj) //this will create a table
+
+warn() -> used for warnings
+ex: 
+console.warn("Hey please.....")
+
+info() -> used for special information
+console.info("Hey.....")
+
+time() -- to start a timer
+timeEnd() -- to end timer and know time of a particular code 
+
+
+------------ALERT/PROMPT/CONFIRM
+ALERT:
+used to invake a mini window with a message
+
+             alert("Hello")
+
+
+Prompt:
+used to take user input as string
+
+inp=prompt("hi", "no")   // no here is optional default value
+
+
+Confirm:
+shows a message and waits for the user to process ok or cancel.
+returns true for ok and false for cancel
+
+the exact location and look is determined by the browser which is a 
+limitation
+
+
+
+##  Window object, BOM & DOM
+we have the following when javascript runs in a browser
+
+window 
+      -DOM (Document object model) 
+      DOM represents the page content as html
+      -document.body    ->page body as js object
+      -document.body.style.background="green"   ->changes page background to
+       green
+
+      -BOM (Browser object model)
+      the browser object model(BOM) represents additional objects provided
+      by the browser (host enviornment) for working with everything except
+      the document
+
+      the functions alert/confirm/prompt are also a part of the BOM
+
+      location.href="www.google.com" //redirect to another URL
+
+      -javascript Core
+
+-window object represents Browser window and provides methods to control
+it. It is a global object
+ 
